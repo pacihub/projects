@@ -35,20 +35,23 @@ if(argc != 2)
 
 
 
-    string s = get_string("plaintext: \n");
+    string s = get_string("plaintext: ");
 
   printf("ciphertext: ");
+//in this loop I check every character in the plaintext and compare if it is upper case, lower case or ELSE, then I convert 
+//accordingly to alphabet number. Increase by the key. then modulo %26 which keeps in the loop of 26 letters and then back to ASCII
+
     for (int i = 0; i < strlen(s); i++)
     {
          if(islower(s[i]))
-         { 
+         {
              s[i]= ((s[i]-97 + k)%26) +97;
 
          printf("%c", s[i]);
          }
 
           else if(isupper(s[i]))
-         { 
+         {
              s[i]= (s[i]-65 + k)%26 +65;
 
          printf("%c", s[i]);
