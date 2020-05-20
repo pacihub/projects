@@ -38,7 +38,7 @@ if(argc != 2)
     string s = get_string("plaintext: \n");
 
   printf("ciphertext: ");
-    for (int i = 0; i <=strlen(s); i++)
+    for (int i = 0; i < strlen(s); i++)
     {
          if(islower(s[i]))
          { 
