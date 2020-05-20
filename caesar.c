@@ -55,7 +55,7 @@ if(argc != 2)
          else
         printf("%c",s[i]);
 
-
+printf("\n");
 
     }
 
