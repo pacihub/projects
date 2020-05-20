@@ -59,5 +59,5 @@ if(argc != 2)
     }
 
 printf("\n");
-
+return 0;
 }
