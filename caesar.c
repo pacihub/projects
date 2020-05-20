@@ -41,13 +41,15 @@ if(argc != 2)
     for (int i = 0; i <=strlen(s); i++)
     {
          if(islower(s[i]))
-         { s[i]= ((s[i]-97 + k)%26) +97;
+         { 
+             s[i]= ((s[i]-97 + k)%26) +97;
 
          printf("%c", s[i]);
          }
 
           else if(isupper(s[i]))
-         { s[i]= (s[i]-65 + k)%26 +65;
+         { 
+             s[i]= (s[i]-65 + k)%26 +65;
 
          printf("%c", s[i]);
          }
@@ -59,5 +61,5 @@ if(argc != 2)
     }
 
 printf("\n");
-return 0;
+
 }
