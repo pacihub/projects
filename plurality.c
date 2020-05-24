@@ -98,7 +98,7 @@ int main(int argc, string argv[])
         {
             if(candidates[p].votes == max_votes)
             {
-            printf("winner is: %s\n",candidates[p].name);
+            printf("%s\n",candidates[p].name);
             }
         }
     
