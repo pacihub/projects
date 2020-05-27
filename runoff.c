@@ -73,17 +73,23 @@ int main(int argc, string argv[])
             string name = get_string("Rank %i: ", j + 1);
 
             // Record vote, unless it's invalid
+            //for vote we need 3 for loops. 2 for the rectangle (2D array) Y axis (voter_count) and X axis (candidate count).
+            //for every square in this 2D array, we need the 3rd FOR loop to iterate through candidate names in memory (candidates[i].names) and compares the value to the typed VOTE
+            //3rd loop is inside the vote function
             if (!vote(i, j, name))
             {
                 printf("Invalid vote.\n");
                 return 4;
             }
         }
-printf("%i\n", preferences[0][0]);
-printf("%i\n", preferences[0][1]);
-printf("%i\n", preferences[0][2]);
+
+//this is just for me to see how preferences get assigned in the 2D array. Check only the first 3 preferences for the 1st voter.
+
+// printf("%i\n", preferences[0][0]);
+// printf("%i\n", preferences[0][1]);
+// printf("%i\n", preferences[0][2]);
         printf("\n");
-        
+
     }
 
     // Keep holding runoffs until winner exists
@@ -91,11 +97,13 @@ printf("%i\n", preferences[0][2]);
     {
         // Calculate votes given remaining candidates
         tabulate();
-    printf("%s %i\n",candidates[0].name, candidates[0].votes);
-    printf("%s %i\n",candidates[1].name, candidates[1].votes);
-    printf("%s %i\n",candidates[2].name, candidates[2].votes);
-    break;
-    
+   
+   //this is just for me to see how tabulate function counts the number of votes, especially how it changes depending on if there is a 'break' in the loop.
+   // printf("%s %i\n",candidates[0].name, candidates[0].votes);
+    //printf("%s %i\n",candidates[1].name, candidates[1].votes);
+ 
+    //break; (this break here, if i include it, it won't go down, but somehow it executes the code correctly.???)
+
 
         // Check if election has been won
         bool won = print_winner();
@@ -130,16 +138,15 @@ printf("%i\n", preferences[0][2]);
             candidates[i].votes = 0;
         }
     }
-    
-   
+
     return 0;
-    
+
 }
 
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // TODO//////////////////
+    // TODO
     for (int k=0; k< candidate_count; k++)
         {
             if(strcmp(candidates[k].name, name)==0)
@@ -148,7 +155,7 @@ bool vote(int voter, int rank, string name)
                 return true;
                 }
         }
-  ////////////////////////////
+
     return false;
 }
 
@@ -163,23 +170,22 @@ void tabulate(void)
                  if(candidates[preferences[i][j]].eliminated == false)
                     {
                         candidates[preferences[i][j]].votes +=1;
-            //if this break is not here, the algo will loop through all the squares on the board and therefore add
-            // one vote to every candidate. Meaning all candidates will end up with the same number of votes.
-            // try with and without the break to see difference with printfs for the first few candidates.
-            //the break stops the function right after the condition is met. meaning only one candidate will get the vote on the same row.
+//if this break is not here, the algo will loop through all the squares on the board and therefore add
+// one vote to every candidate. Meaning all candidates will end up with the same number of votes.
+// try with and without the break to see difference with printfs for the first few candidates.
+//the break stops the function right after the condition is met. meaning only one candidate will get the vote on the same row.
                 break;
                     }
              }
 
         }
-   ////////////////////////////////////////////
 }
 
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO/////////////////
-    
+    // TODO
+
     for (int i=0; i<candidate_count; i++)
         {
             if(candidates[i].votes > (voter_count/2))
@@ -188,9 +194,7 @@ bool print_winner(void)
                 return true;
                 }
         }
-        
-    
-    ///////////////////
+
     return false;
 }
 
@@ -202,16 +206,16 @@ int find_min(void)
         for(int i = 0; i< candidate_count; i++)
         {
             if(candidates[i].votes < min)
-            { 
+            {
                 if(!candidates[i].eliminated)
                 {
                     min = candidates[i].votes;
                 }
             }
-            
+
         }
-    
-    ////////////////////////
+
+//returning min, because the next function will use that value. so we gotta feed it
     return min;
 }
 
@@ -225,10 +229,9 @@ bool is_tie(int min)
             {
                 return false;
             }
-        
+
     }
-    
-    ////////////////
+
     return true;
 }
 
@@ -243,7 +246,6 @@ void eliminate(int min)
                     candidates[i].eliminated = true;
                 }
         }
-    
-    
+
     return;
 }
