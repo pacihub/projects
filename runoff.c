@@ -184,7 +184,7 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
+    // TODO. the maximum votes if bigger than voter_count/2 => we have someone with more than 50%
 
     for (int i=0; i<candidate_count; i++)
         {
@@ -202,6 +202,8 @@ bool print_winner(void)
 int find_min(void)
 {
     // TODO
+    //setting min to 101. arbitrary number, as the MAX voters is 100. it really doesn't matter what this number is as long as 
+    //it doesn't interfere with anything inside the array. it gets a 'more real' value in the first iteration anyway.
  int min = 101;
         for(int i = 0; i< candidate_count; i++)
         {
@@ -238,7 +240,7 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidiates) in last place
 void eliminate(int min)
 {
-    // TODO
+    // TODO. with this I check whose votes = min, and if they do, I flip their elimintaed to become true => disqualified
     for (int i = 0; i<candidate_count;i++)
         {
             if(candidates[i].votes == min)
