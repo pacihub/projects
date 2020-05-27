@@ -198,7 +198,7 @@ bool print_winner(void)
 int find_min(void)
 {
     // TODO
- int min = candidate_count;
+ int min = 101;
         for(int i = 0; i< candidate_count; i++)
         {
             if(candidates[i].votes < min)
