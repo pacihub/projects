@@ -112,7 +112,7 @@ RGBTRIPLE image2[height][width];
 
         for(int j=0; j<width; j++)
         {
-            
+
          if(i==0) // top row
             {
                 if(j==0) //top row first box
@@ -162,47 +162,47 @@ RGBTRIPLE image2[height][width];
                 }
              else if(j==0) //first column any middle box (NOT top, NOT bottom)
              {
-                 
+
                  image2[i][j].rgbtRed = round((image[i-1][j].rgbtRed + image[i][j].rgbtRed + image[i+1][j].rgbtRed + image[i-1][j+1].rgbtRed + image[i][j+1].rgbtRed + image[i+1][j+1].rgbtRed)/6.0);
                  image2[i][j].rgbtBlue = round((image[i-1][j].rgbtBlue + image[i][j].rgbtBlue + image[i+1][j].rgbtBlue + image[i-1][j+1].rgbtBlue + image[i][j+1].rgbtBlue + image[i+1][j+1].rgbtBlue)/6.0);
                  image2[i][j].rgbtGreen = round((image[i-1][j].rgbtGreen + image[i][j].rgbtGreen + image[i+1][j].rgbtGreen + image[i-1][j+1].rgbtGreen + image[i][j+1].rgbtGreen + image[i+1][j+1].rgbtGreen)/6.0);
-                 
+
              }
-             
+
             else if(j==width-1)
             {
                 image2[i][j].rgbtRed = round((image[i-1][width-1].rgbtRed + image[i][width-1].rgbtRed + image[i+1][width-1].rgbtRed + image[i-1][width-1-1].rgbtRed + image[i][width-1-1].rgbtRed + image[i+1][width-1-1].rgbtRed)/6.0);
                 image2[i][j].rgbtBlue = round((image[i-1][width-1].rgbtBlue + image[i][width-1].rgbtBlue + image[i+1][width-1].rgbtBlue + image[i-1][width-1-1].rgbtBlue + image[i][width-1-1].rgbtBlue + image[i+1][width-1-1].rgbtBlue)/6.0);
                 image2[i][j].rgbtGreen = round((image[i-1][width-1].rgbtGreen + image[i][width-1].rgbtGreen + image[i+1][width-1].rgbtGreen + image[i-1][width-1-1].rgbtGreen + image[i][width-1-1].rgbtGreen + image[i+1][width-1-1].rgbtGreen)/6.0);
-                
+
             }
-            
-            else if(i>0 && j>0 && i<height-1 && j<width-1)
+
+            else
             {
                 image2[i][j].rgbtRed = round((image[i-1][j-1].rgbtRed + image[i-1][j].rgbtRed + image[i-1][j+1].rgbtRed + image[i][j-1].rgbtRed + image[i][j].rgbtRed + image[i][j+1].rgbtRed + image[i+1][j-1].rgbtRed + image[i+1][j].rgbtRed + image[i+1][j+1].rgbtRed)/9.0);
                 image2[i][j].rgbtBlue = round((image[i-1][j-1].rgbtBlue + image[i-1][j].rgbtBlue + image[i-1][j+1].rgbtBlue + image[i][j-1].rgbtBlue + image[i][j].rgbtBlue + image[i][j+1].rgbtBlue + image[i+1][j-1].rgbtBlue + image[i+1][j].rgbtBlue + image[i+1][j+1].rgbtBlue)/9.0);
                 image2[i][j].rgbtGreen = round((image[i-1][j-1].rgbtGreen + image[i-1][j].rgbtGreen + image[i-1][j+1].rgbtGreen + image[i][j-1].rgbtGreen + image[i][j].rgbtGreen + image[i][j+1].rgbtGreen + image[i+1][j-1].rgbtGreen + image[i+1][j].rgbtGreen + image[i+1][j+1].rgbtGreen)/9.0);
-                
+
             }
 
 
-          } // maluk for
+        } // inner for loop closing bracket
 
 
-        } //na goliamfor loop skobata
+    } // outer for loop closing bracket
 
-    
 
-//here i assign every pixel from 2 to 1. because my outpout is image and not image2
+
+//here i assign every pixel from 2 to 1. because my outpout is image and not image2. all floats are rounded up in the algo above
    for(int i = 0; i<height; i++)
   {
        for(int j=0; j<width; j++)
        {
-           
+
            image[i][j].rgbtRed = image2[i][j].rgbtRed;
            image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
            image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
-           
+
        }
    }
 
