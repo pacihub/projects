@@ -116,6 +116,7 @@ RGBTRIPLE image2[height][width];
          if(i==0) // top row
             {
                 if(j==0) //top row first box
+                //i'm using the round function and also dividing by x.0 as the result will be float
                     {
              image2[i][j].rgbtRed = round((image[i][j].rgbtRed + image[i][j+1].rgbtRed + image[i+1][j].rgbtRed + image[i+1][j+1].rgbtRed)/4.0);
              image2[i][j].rgbtBlue = round((image[i][j].rgbtBlue + image[i][j+1].rgbtBlue + image[i+1][j].rgbtBlue + image[i+1][j+1].rgbtBlue)/4.0);
@@ -197,17 +198,11 @@ RGBTRIPLE image2[height][width];
   {
        for(int j=0; j<width; j++)
        {
-           float Rf = image2[i][j].rgbtRed;
-           float Bf = image2[i][j].rgbtBlue;
-           float Gf = image2[i][j].rgbtGreen;
            
-           int R = round(Rf);
-           int B = round(Bf);
-           int G = round(Gf);
+           image[i][j].rgbtRed = image2[i][j].rgbtRed;
+           image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
+           image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
            
-           image[i][j].rgbtRed = R;
-           image[i][j].rgbtBlue = B;
-           image[i][j].rgbtGreen = G;
        }
    }
 
