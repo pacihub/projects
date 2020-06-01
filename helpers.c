@@ -95,7 +95,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     //        image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
     //        image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
     //    }
-    }
+ //   }
 
 
     return;
