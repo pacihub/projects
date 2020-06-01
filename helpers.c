@@ -31,13 +31,17 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     for(int i=0; i<height; i++)
     {
 
-int R,G,B;
+float Rf,Gf,Bf;
         for(int j=0; j<width; j++)
         {
 
-            R = round(0.393*image[i][j].rgbtRed + 0.189*image[i][j].rgbtBlue + 0.769*image[i][j].rgbtGreen);
-            G = round(0.349*image[i][j].rgbtRed + 0.168*image[i][j].rgbtBlue + 0.686*image[i][j].rgbtGreen);
-            B = round(0.272*image[i][j].rgbtRed + 0.131*image[i][j].rgbtBlue + 0.534*image[i][j].rgbtGreen);
+            Rf = 0.393*image[i][j].rgbtRed + 0.189*image[i][j].rgbtBlue + 0.769*image[i][j].rgbtGreen;
+            Gf = 0.349*image[i][j].rgbtRed + 0.168*image[i][j].rgbtBlue + 0.686*image[i][j].rgbtGreen;
+            Bf = 0.272*image[i][j].rgbtRed + 0.131*image[i][j].rgbtBlue + 0.534*image[i][j].rgbtGreen;
+            
+            int R = round(Rf);
+            int G = round(Gf);
+            int B = round(Bf);
             
             if(R>255)
             {
