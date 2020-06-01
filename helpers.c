@@ -69,29 +69,32 @@ float Rf,Gf,Bf;
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    
+    //here i define a second identical image. a copy. i will swap pixels
     RGBTRIPLE image2[height][width];
 
+//with these for 
     for(int i=0; i<height; i++)
     {
 
         for(int j=0; j<width; j++)
         {
 
-            image2[i][j].rgbtRed = image[i][width-1-j].rgbtRed ;
-            image2[i][j].rgbtBlue = image[i][width-1-j].rgbtBlue ;
-            image2[i][j].rgbtGreen = image[i][width-1-j].rgbtGreen ;
+            image[i][j].rgbtRed = image2[i][width-1-j].rgbtRed ;
+            image[i][j].rgbtBlue = image2[i][width-1-j].rgbtBlue ;
+            image[i][j].rgbtGreen = image2[i][width-1-j].rgbtGreen ;
         }
 
     }
 
-    for(int i = 0; i<height; i++)
-    {
-        for(int j=0; j<width; j++)
-        {
-            image[i][j].rgbtRed = image2[i][j].rgbtRed;
-            image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
-            image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
-        }
+   // for(int i = 0; i<height; i++)
+  //  {
+    //    for(int j=0; j<width; j++)
+    //    {
+    //        image[i][j].rgbtRed = image2[i][j].rgbtRed;
+    //        image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
+    //        image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
+    //    }
     }
 
 
