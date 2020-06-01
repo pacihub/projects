@@ -73,29 +73,29 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     //here i define a second identical image. a copy. i will swap pixels
     RGBTRIPLE image2[height][width];
 
-//with these for 
+//with these for loops i assign all pixels from original image to image2 in a mirror fashio.
     for(int i=0; i<height; i++)
     {
 
         for(int j=0; j<width; j++)
         {
-
-            image[i][j].rgbtRed = image2[i][width-1-j].rgbtRed ;
-            image[i][j].rgbtBlue = image2[i][width-1-j].rgbtBlue ;
-            image[i][j].rgbtGreen = image2[i][width-1-j].rgbtGreen ;
+//i take the width as a factor here. for example index0 from image will appear as index width-1-0. we start counting from 0, don't forget. if width =5, then last index will be 4. that's why width-1
+            image2[i][j].rgbtRed = image[i][width-1-j].rgbtRed ;
+            image2[i][j].rgbtBlue = image[i][width-1-j].rgbtBlue ;
+            image2[i][j].rgbtGreen = image[i][width-1-j].rgbtGreen ;
         }
 
     }
-
-   // for(int i = 0; i<height; i++)
-  //  {
-    //    for(int j=0; j<width; j++)
-    //    {
-    //        image[i][j].rgbtRed = image2[i][j].rgbtRed;
-    //        image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
-    //        image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
-    //    }
- //   }
+//here i assign every pixel from 2 to 1. because my outpout is image and not image2
+   for(int i = 0; i<height; i++)
+  {
+       for(int j=0; j<width; j++)
+       {
+           image[i][j].rgbtRed = image2[i][j].rgbtRed;
+           image[i][j].rgbtBlue = image2[i][j].rgbtBlue;
+           image[i][j].rgbtGreen = image2[i][j].rgbtGreen;
+       }
+   }
 
 
     return;
