@@ -37,7 +37,7 @@ if(argc != 2)
         if(buffer[i]== 0xff && buffer[i+1]==0xd8 && buffer[i+2]== 0xff)
             {
             count++;
-            sprintf(jpegname, "%03d.jpg", count);
+            sprintf(jpegname, "%03d.jpg", count-1);
             
             FILE *jpeg = fopen(jpegname, "w");
                     if(jpeg == NULL)
