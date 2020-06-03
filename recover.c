@@ -22,24 +22,25 @@ if(argc != 2)
     
     
     unsigned char buffer[512];
+    //allocate an array with 8 spaces for the name of the jpg. 3 for digis *** + 4 for .jpg + 1 for \0
     char jpegname[8];
     int count = 0;
     
-    while (fread(buffer, 512, 1, file) ==1)
+    FILE *jpeg; 
+    while(fread(buffer, 512, 1, file)==1)
     {
     
-    
-    
-    
-        for(int i=0; i< 512; i++)
-        {   
-    
-        if(buffer[i]== 0xff && buffer[i+1]==0xd8 && buffer[i+2]== 0xff)
+        if(buffer[0]== 0xff && buffer[1]==0xd8 && buffer[2]== 0xff)
             {
+                if(count>0)
+                { fclose(jpeg); 
+                    
+                }
+                
             count++;
             sprintf(jpegname, "%03d.jpg", count-1);
             
-            FILE *jpeg = fopen(jpegname, "w");
+           jpeg = fopen(jpegname, "w");
                     if(jpeg == NULL)
                         {
                         printf("Image cannot be opened.");
@@ -47,13 +48,14 @@ if(argc != 2)
                         }
             
             fwrite(buffer, 512, 1, jpeg);
-            
-                    
             }
+            else
+            fwrite(buffer, 512, 1, jpeg);
             
-        }
+           
         
     }
+
     
 printf("%i",count);
 
