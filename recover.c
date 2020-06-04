@@ -69,6 +69,4 @@ if(argc != 2)
     }
 
 
-printf("%i",count);
-
 }
