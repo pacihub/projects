@@ -15,7 +15,7 @@ if(argc != 2)
     FILE *file = fopen(argv[1], "r");
 
 //check if file opened successfully. if pointer was NULL then ERROR.
-    if(file == NULL)
+    if (file == NULL)
     {
         printf("Image cannot be opened.");
         return 1;
@@ -35,35 +35,35 @@ if(argc != 2)
 
     //fread - 'I will read from the file that pointer *file leads me to, in 512 chunks, and store each chuck in array called 'buffer'. Will read '1' at a time.
     //the output of read is whatever it reads. So i told it to read 1/time, so it returns 1. The condition checks when the end of the file will be reached. EOF will return 0.
-    while(fread(buffer, 512, 1, file)==1)
+    while (fread(buffer, 512, 1, file) == 1)
     {
 
 //testing two conditions. Is it a beginning of a JPEG? then do all those things. Otherwise keep going and write more 512Mb blocks in the currently open JPEG file
-        if((buffer[0]== 0xff && buffer[1]==0xd8 && buffer[2]== 0xff) && ((buffer[3] & 0xf0) == 0xe0))
+        if((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && ((buffer[3] & 0xf0) == 0xe0))
+        {
+            if(count>0)  //if count>0 this means the picture from last loop hasn't been closed. need to close.
             {
-                if(count>0)
-                //if count>0 this means the picture from last loop hasn't been closed. need to close.
-                {
-                    fclose(jpeg);
-                }
+              fclose(jpeg);
+            }
 
             count++;
             //if conditions are met and the file is JPEG, then i give it a name, same as the current count and store the name in 'jpegname' array (buffer)
             //sprintf, same as fread, uses a buffer array. so it prints a string into an array 'jpegname' that i had previously declared.
-            sprintf(jpegname, "%03d.jpg", count-1);
+            sprintf(jpegname, "%03d.jpg", count - 1);
 
 //finally assigning the pointer to the file where i will write my photo. Open a file, with the name store in 'jpegname' array, for writing
-           jpeg = fopen(jpegname, "w");
-                    if(jpeg == NULL)
-                        {
-                        printf("Image cannot be opened.");
-                        return 1;
-                        }
+            jpeg = fopen(jpegname, "w");
+                if(jpeg == NULL)
+                    {
+                    printf("Image cannot be opened.");
+                    return 1;
+                    }
 
 //writing into the file. I am writing from 'buffer', 512Mb at a time (1) and all that is going to the file where the pointer jpeg leads me to
             fwrite(buffer, 512, 1, jpeg);
             }
             else
+            
             fwrite(buffer, 512, 1, jpeg);
 
     }
