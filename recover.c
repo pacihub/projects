@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
 
 //ensure the human to type a file name
-if(argc != 2)
+   if (argc != 2)
     {
         printf("Use only one name.");
         return 1;
@@ -39,11 +39,11 @@ if(argc != 2)
     {
 
 //testing two conditions. Is it a beginning of a JPEG? then do all those things. Otherwise keep going and write more 512Mb blocks in the currently open JPEG file
-        if((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && ((buffer[3] & 0xf0) == 0xe0))
+        if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && ((buffer[3] & 0xf0) == 0xe0))
         {
-            if(count>0)  //if count>0 this means the picture from last loop hasn't been closed. need to close.
+            if (count > 0)      //if count>0 this means the picture from last loop hasn't been closed. need to close.
             {
-              fclose(jpeg);
+                fclose(jpeg);
             }
 
             count++;
@@ -53,11 +53,11 @@ if(argc != 2)
 
 //finally assigning the pointer to the file where i will write my photo. Open a file, with the name store in 'jpegname' array, for writing
             jpeg = fopen(jpegname, "w");
-                if(jpeg == NULL)
-                    {
-                    printf("Image cannot be opened.");
-                    return 1;
-                    }
+            if (jpeg == NULL)
+                {
+                printf("Image cannot be opened.");
+                return 1;
+                }
 
 //writing into the file. I am writing from 'buffer', 512Mb at a time (1) and all that is going to the file where the pointer jpeg leads me to
             fwrite(buffer, 512, 1, jpeg);
