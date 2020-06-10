@@ -37,7 +37,7 @@ node *cursor = table[bucket];
 
   while (cursor != NULL)
   {
-      if (strcasecmp(cursor->word, word) != 0)
+      if (strcasecmp(word, cursor->word) != 0)
             cursor = cursor->next;
         else
             return true;
