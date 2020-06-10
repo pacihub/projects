@@ -34,9 +34,9 @@ bool check(const char *word)
     // TODO
     int index_t = hash(word);
 
-    for (node *tmp = table[index_t]; tmp != NULL; tmp = tmp->next)
+    for (node *cursor = table[index_t]; cursor != NULL; cursor = cursor->next)
     {
-        if(strcasecmp(word, tmp->word)==0)
+        if(strcasecmp(word, cursor->word)==0)
         {
             return true;
         }
