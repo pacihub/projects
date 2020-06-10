@@ -46,7 +46,7 @@ bool check(const char *word)
         }
        
     }
-return false;
+return true;
 }
 
 // Hashes word to a number
