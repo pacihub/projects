@@ -42,7 +42,7 @@ bool check(const char *word)
         }
         else
         {
-            cursor = cursor->next;
+            return false;
         }
        
     }
