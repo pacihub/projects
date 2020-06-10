@@ -42,7 +42,6 @@ node *cursor = table[bucket];
         else
             return true;
      
-      
   }
   
   
@@ -60,7 +59,7 @@ node *cursor = table[bucket];
         //}
        
     
-return false;
+return true;
 }
 
 // Hashes word to a number
