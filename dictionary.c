@@ -60,7 +60,7 @@ node *cursor = table[bucket];
         //}
        
     
-return true;
+return false;
 }
 
 // Hashes word to a number
