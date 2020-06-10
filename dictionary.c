@@ -32,27 +32,13 @@ int word_count = 0;
 bool check(const char *word)
 {
     // TODO
-    char *tmp = malloc(sizeof(word));
-    if (tmp == NULL)
-    
-    for (int i = 0; i<strlen(word); i++)
-    {
-        if (isupper(word[i])==1)
-        { 
-            tmp[i] = word[i] + 32;
-        }
-        else
-        tmp[i] = word[i];
-    }
-    
-    
     
     int bucket = hash(word);
   node *cursor = table[bucket];
 
   while (cursor != NULL)
   {
-      if (strcmp(word, cursor->word) != 0)
+      if (strcasecmp(word, cursor->word) != 0)
             cursor = cursor->next;
         else
             return true;
