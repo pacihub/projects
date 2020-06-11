@@ -95,10 +95,11 @@ bool load(const char *dictionary)
 //declaring and allocating a buffer for scanf function to read into.
      char buffer_word[LENGTH + 1];
 
+    node *new_node;
     while(fscanf(infile, "%s", buffer_word) != EOF)
     {
 
-        node *new_node = malloc(sizeof(node)); //allocating space in memory for new node
+      new_node = malloc(sizeof(node)); //allocating space in memory for new node
 
             if(new_node == NULL)
              {
@@ -131,7 +132,7 @@ bool load(const char *dictionary)
             } //big(outer) else closing bracket
 
         } //while loop closing bracket
-        
+        free(new_node);
         
     return true;
     fclose(infile);
