@@ -151,7 +151,7 @@ bool unload(void)
 {
     // TODO
     
-    for (int i = 0; i <= N; i++)
+    for (int i = 0; i < N; i++)
     {
     
     node *cursor = table[i];
@@ -163,7 +163,6 @@ bool unload(void)
             cursor = cursor->next;
             free(tmp);
         
-            
         }
     
     }
