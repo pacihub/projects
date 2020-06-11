@@ -132,9 +132,8 @@ bool load(const char *dictionary)
 
         } //while loop closing bracket
         
-        
+    fclose(infile);    
     return true;
-    fclose(infile);
 } //bool function closing bracket
 
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
