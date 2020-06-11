@@ -130,7 +130,6 @@ bool load(const char *dictionary)
                 }       //inner else closing bracket
             } //big(outer) else closing bracket
 
-          free(new_node);
         } //while loop closing bracket
         
         
