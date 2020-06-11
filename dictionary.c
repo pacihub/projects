@@ -32,13 +32,38 @@ int word_count = 0;
 bool check(const char *word)
 {
     // TODO
+    char copy_word[strlen(word)];  //array for new word with length of original word that I compare
+    strcpy(copy_word, word);  //copy original word string (destination, source)
+    
+    for (int i = 0; copy_word[i] != '\0'; i++)
+    {
+        copy_word[i] = tolower(word[i]);
+    }
+    
+    int index = hash(copy_word);   //getting the hash table index after hashing the word in all lower case
+
   
+  node *cursor = table[index];
   
+while (cursor != NULL)
+{
+    if(strcasecmp(copy_word, cursor->word)==0)
+    {
+    return true;
+    }
+    else
+    cursor = cursor->next;
+}
   
-  
-  
-  
-  return true;
+   //for (node *cursor = table[index]; cursor != NULL; cursor = cursor->next)
+   // {
+    //  if(strcasecmp(copy_word, cursor->word)==0)
+    //    {
+      //     return true;
+      //  }
+       
+    
+return false;
 }
 
 // Hashes word to a number
@@ -89,12 +114,12 @@ bool load(const char *dictionary)
             printf("not enough memory\n");
             unload(); //unload file
             return false; //so the program can quit
-            }
+             }
              else
             {
             int index = hash(new_node->word);   //getting the index by hashing the word
 
-            strcpy(new_node->word,buffer_word);  //the word is copied in that node
+            strcpy(new_node->word,buffer_word);  //the word is copied in that node (destination, source)
 
             word_count++;   //increasing the word counter
 
