@@ -46,17 +46,17 @@ bool check(const char *word)
  // }
   
   
-  
+  if(table[index_t]!=NULL)
+  {
   
   for (node *cursor = table[index_t]; cursor != NULL; cursor = cursor->next)
     {
         if(strcasecmp(word, cursor->word)==0)
-        {
            return true;
-        }
         
     }
-       
+  }
+  
     
 return false;
 }
