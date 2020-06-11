@@ -38,15 +38,29 @@ bool check(const char *word)
 
   while (cursor != NULL)
   {
-      if (strcasecmp(word, cursor->word) == 0)
-            {
+      if (strcasecmp(word, cursor->word) != 0)
+            cursor = cursor->next;
+        else
             return true;
-            }
-            cursor = cursor-> next;
      
   }
-   
-return false;
+  
+  
+  
+  
+  //  for (node *cursor = table[index_t]; cursor != NULL; cursor = cursor->next)
+    //{
+      //  if(strcasecmp(word, cursor->word)==0)
+        //{
+        //    return true;
+        //}
+        //else
+        //{
+          //  return false;
+        //}
+       
+    
+return true;
 }
 
 // Hashes word to a number
@@ -68,6 +82,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+    //-------------------------
     //open the file and read
     for (int i = 0; i < N; i++)
        {
@@ -76,21 +91,23 @@ bool load(const char *dictionary)
 
     FILE *infile = fopen(dictionary, "r");
 
-    if (infile == NULL)  //check if file opened successfully.
+//check if file opened successfully. if pointer was NULL then ERROR.
+    if (infile == NULL)
     {
         printf("Dictionary cannot be opened.");
         return 1;
     }
 
-     char buffer_word[LENGTH + 1];  //declare and allocate a buffer for scanf function to read into.
+//declaring and allocating a buffer for scanf function to read into.
+     char buffer_word[LENGTH + 1];
 
-    while(fscanf(infile, "%s", buffer_word) != EOF) 
+    while(fscanf(infile, "%s", buffer_word) != EOF)
     {
 
         node *new_node = malloc(sizeof(node)); //allocating space in memory for new node
 
             if(new_node == NULL)
-            {
+             {
             printf("not enough memory\n");
             unload(); //unload file
             return false; //so the program can quit
@@ -104,14 +121,14 @@ bool load(const char *dictionary)
             word_count++;   //increasing the word counter
 
                         //this where nodes get appended to the separate buckets
-            if(table[index]==NULL)  //if there's nothing there, head (table[index]) points at new node and NEXT in new node
+                if(table[index]==NULL)  //if there's nothing there, head (table[index]) points at new node and NEXT in new node
                                     //is initialized to NULL;
                 {
                 table[index] = new_node;
                 new_node->next = NULL;
                 }
-                else    //if there is a collision, the new node points at the head, and then the head points at the node
-                        //so we don't orphan the rest
+                else            //if there is a collision, the new node points at the head, and then the head points at the node
+                            //so we don't orphan the rest
                 {
                 new_node->next = table[index];
                 table[index] = new_node;
@@ -129,7 +146,7 @@ unsigned int size(void)
     // TODO
 
     return word_count;
-    
+    printf("%i", word_count);
 }
 
 // Unloads dictionary from memory, returning true if successful else false
