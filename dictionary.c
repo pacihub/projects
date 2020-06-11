@@ -109,9 +109,10 @@ bool load(const char *dictionary)
              else
             {
             
-
             strcpy(new_node->word,buffer_word);  //the word is copied in that node (destination, source)
-int index = hash(new_node->word);   //getting the index by hashing the word
+            
+            int index = hash(new_node->word);   //getting the index by hashing the word
+            
             word_count++;   //increasing the word counter
 
                         //this where nodes get appended to the separate buckets
@@ -129,7 +130,10 @@ int index = hash(new_node->word);   //getting the index by hashing the word
                 }       //inner else closing bracket
             } //big(outer) else closing bracket
 
+          free(new_node);
         } //while loop closing bracket
+        
+        
     return true;
     fclose(infile);
 } //bool function closing bracket
@@ -148,7 +152,7 @@ bool unload(void)
 {
     // TODO
     
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= N; i++)
     {
     
     while (table[i] != NULL)
