@@ -33,31 +33,30 @@ bool check(const char *word)
 {
     // TODO
     
-    int bucket = hash(word);
-  node *cursor = table[bucket];
+    int index_t = hash(word);
+  //node *cursor = table[bucket];
 
-  while (cursor != NULL)
-  {
-      if (strcasecmp(word, cursor->word) != 0)
-            cursor = cursor->next;
-        else
-            return true;
+  //while (cursor != NULL)
+ // {
+ //     if (strcasecmp(word, cursor->word) != 0)
+ //           cursor = cursor->next;
+ //       else
+ ///           return true;
      
-  }
+ // }
   
   
   
   
-  //  for (node *cursor = table[index_t]; cursor != NULL; cursor = cursor->next)
-    //{
-      //  if(strcasecmp(word, cursor->word)==0)
-        //{
-        //    return true;
-        //}
-        //else
-        //{
-          //  return false;
-        //}
+  for (node *cursor = table[index_t]; cursor != NULL; cursor = cursor->next)
+    {
+        if(strcasecmp(word, cursor->word)==0)
+        {
+           return true;
+        }
+        else
+        cursor = cursor->next;
+    }
        
     
 return false;
