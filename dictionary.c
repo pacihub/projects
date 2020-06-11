@@ -32,33 +32,13 @@ int word_count = 0;
 bool check(const char *word)
 {
     // TODO
-    
-    int index_t = hash(word);
-  //node *cursor = table[bucket];
-
-  //while (cursor != NULL)
- // {
- //     if (strcasecmp(word, cursor->word) != 0)
- //           cursor = cursor->next;
- //       else
- ///           return true;
-     
- // }
   
   
-  if(table[index_t]!=NULL)
-  {
   
-  for (node *cursor = table[index_t]; cursor != NULL; cursor = cursor->next)
-    {
-        if(strcasecmp(word, cursor->word)==0)
-           return true;
-        
-    }
-  }
   
-    
-return false;
+  
+  
+  return true;
 }
 
 // Hashes word to a number
