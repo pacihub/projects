@@ -32,7 +32,7 @@ int word_count = 0;
 bool check(const char *word)
 {
     // TODO
-    char copy_word[strlen(word)];  //array for new word with length of original word that I compare
+    char copy_word[LENGTH + 1];  //array for new word with length of original word that I compare
     strcpy(copy_word, word);  //copy original word string (destination, source)
     
     for (int i = 0; copy_word[i] != '\0'; i++)
@@ -42,27 +42,18 @@ bool check(const char *word)
     
     int index = hash(copy_word);   //getting the hash table index after hashing the word in all lower case
 
+
+
   
-  node *cursor = table[index];
   
-while (cursor != NULL)
-{
-    if(strcasecmp(copy_word, cursor->word)==0)
+   for (node *cursor = table[index]; cursor != NULL; cursor = cursor->next)
     {
-    return true;
-    }
-    else
-    cursor = cursor->next;
-}
-  
-   //for (node *cursor = table[index]; cursor != NULL; cursor = cursor->next)
-   // {
-    //  if(strcasecmp(copy_word, cursor->word)==0)
-    //    {
-      //     return true;
-      //  }
+      if(strcasecmp(copy_word, cursor->word)==0)
+        {
+           return true;
+        }
        
-    
+    }
 return false;
 }
 
@@ -73,7 +64,7 @@ return false;
 unsigned int hash(const char *word)
  {
 
-        unsigned long hash = 5381;
+        unsigned int hash = 5381;
         int c;
         while ((c = *word++))
             hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
@@ -89,7 +80,7 @@ bool load(const char *dictionary)
     //open the file and read
     for (int i = 0; i < N; i++)
        {
-           table[i] = NULL;
+           table[i] = NULL;   //set hash table pointers to null
        }
 
     FILE *infile = fopen(dictionary, "r");
@@ -117,10 +108,10 @@ bool load(const char *dictionary)
              }
              else
             {
-            int index = hash(new_node->word);   //getting the index by hashing the word
+            
 
             strcpy(new_node->word,buffer_word);  //the word is copied in that node (destination, source)
-
+int index = hash(new_node->word);   //getting the index by hashing the word
             word_count++;   //increasing the word counter
 
                         //this where nodes get appended to the separate buckets
