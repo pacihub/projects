@@ -1,4 +1,4 @@
-SELECT DISTINCT name from people
+SELECT name from people
 JOIN stars on stars.person_id = people.id 
 WHERE name != "Kevin Bacon"
 AND movie_id IN (SELECT movie_id FROM people
