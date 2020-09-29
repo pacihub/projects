@@ -13,7 +13,7 @@ def main():
     
     query_house = argv[1]
     
-    rows = db.execute("SELECT * from students WHERE house = ?", query_house)
+    rows = db.execute("SELECT * from students WHERE house = ? ORDER BY last, first, birth", query_house)
     for row in rows:
         first, middle, last, birth = row['first'], row["middle"], row["last"], row["birth"]
         print(f"{first}, {middle}, {last}, {birth}")
