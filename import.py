@@ -17,7 +17,9 @@ def main():
     with open(argv[1]) as csv_file:
         csv_inmemory = csv.DictReader(csv_file)
         for row in csv_inmemory:
-            namez = row['name'].split()
+            namez = row['name'].split()  # "Harry Potter" becomes ["Harry", "Potter"]
+            #split breaks strings into words ordered in a LIST, separated by comma.
+            #=> since it is a list, namez[0] = Harry and namez[1] will be Potter
             first = namez[0]
             
             if len(namez) == 3:
@@ -27,13 +29,13 @@ def main():
             
             last = namez[-1]
             
-            house = row['house']
-            birth = row['birth']
+            house = row["house"]
+            birth = row["birth"]
             
-            print(row)
+#           print(row)
 
             db.execute("INSERT into students (first, middle, last, house, birth) VALUES(?, ?, ?, ?, ?)", first, middle, last, house, birth)
-        
+            print(row)
 # print("done importing")
   
 if __name__ == "__main__":

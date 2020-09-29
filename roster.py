@@ -15,6 +15,8 @@ def main():
     
     rows = db.execute("SELECT * from students WHERE house = ?", query_house)
     for row in rows:
-        first, middle, last, birth = row["first"], row["middle"], row["last"], row["birth"]
+        first, middle, last, birth = row['first'], row["middle"], row["last"], row["birth"]
         print(f"{first}, {middle}, {last}, {birth}")
 
+if __name__ == "__main__":
+    main()
