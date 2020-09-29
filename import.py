@@ -34,7 +34,7 @@ def main():
 
             db.execute("INSERT into students (first, middle, last, house, birth) VALUES(?, ?, ?, ?, ?)", first, middle, last, house, birth)
         
-print("done importing")
+# print("done importing")
   
 if __name__ == "__main__":
     main()
