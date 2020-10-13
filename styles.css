@@ -1,0 +1,61 @@
+.title
+            {
+                text-align: center;
+
+            }
+
+.list
+            {
+                font-size: medium;
+                color: green;
+            }
+
+.table_header
+            {
+                background-color: green;
+            }
+
+
+.td
+            {
+                border: 1px solid black;
+                padding: 5px;
+                text-align: center;
+
+            }
+
+#banner {
+
+    color:blue;
+    font-size: 89;
+
+
+}
+
+
+h3 {
+
+    outline-style: dashed;
+    text-align: center;
+
+}
+
+p1 {
+      border: 2px solid black;
+      outline-style: dotted;
+      outline-color: blue;
+      padding: 3px;
+      text-align: center;
+}
+
+.jumbotron {
+        text-align: center;
+}
+
+li:hover{
+    color:orange;
+}
+
+pre.boomer {
+    font-family:verdana;
+}

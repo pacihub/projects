@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>BI Stocks</title>
+
+            <script>
+                function blink()
+            {
+                let p1 = document.querySelector('p');
+                if (p1.style.visibility === 'hidden')
+                {
+                    p1.style.visibility = 'visible';
+
+                }
+                else
+                {
+                    p1.style.visibility = 'hidden';
+                }
+
+            }
+            window.setInterval(blink, 800);
+             </script>
+    </head>
+
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Stocks.html">Stocks <span class="sr-only">(current)</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Commodities.html">Commodities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PreciousMetals.html">Precious Metals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="RealEstate.html">Real Estate</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <pre>
+        Few ways to invest in the stock market.
+        You gotta check out a few brokers and buy a bunch of stocks and ETFs.
+        And always remember the boomer wisdom:
+        </pre>
+
+
+        <p> Time in the market beats timing the market. </p>
+
+    </body>
+
+
+</html>
