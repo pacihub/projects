@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Cash
+{% endblock %}
+
+{% block main %}
+    <form action="/addcash" method="post">
+
+        
+        <h3> You can now add up to $5000 additional money to your account. </h3>
+        
+
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" 
+            name="addcash" placeholder="how much?" type="text">
+        </div>
+        
+        <button class="btn btn-secondary" name = "addcash" 
+            type="submit" value = "add_cash">Add Cash</button>
+        </form>
+
+{% endblock %}
