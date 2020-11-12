@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+<h1 style="text-align:left"> Welcome, {{logged_username }}! </h1>
+
+
+        <script>
+            $(document).ready(function(){
+            $("button").click(function(){
+        
+        
+        var ticker = $(this).attr("value")
+        var action = $(this).data('action');
+    	var quantity = prompt(`How many shares of ${ticker} would you like to ${action}?`, 1);
+
+    	if (quantity > 0) {
+    	    if (action == 'sell') {
+    	        alert(`${quantity} shares of ${ticker} sold`);
+    	        $.ajax({
+            	    url: "/sell",
+            	    type: 'POST',
+            	    data: {
+            	        'stock': ticker,
+            	        'shares': quantity
+            	    }
+            	});
+    	    }
+    	    else if (action == 'buy') {
+    		    alert(`${quantity} shares of ${ticker} bought`);
+    		    $.ajax({
+            	    url: "/buy",
+            	    type: 'POST',
+            	    data: {
+            	        'stock': ticker,
+            	        'shares': quantity
+            	    }
+            	});
+    	    }
+    	}
+    	else {
+    		alert(`You did not specify your number of shares of ${ticker} to ${action}.`);
+    	}
+
+    	// refresh page to show updates
+    	location.reload()
+    });
+});
+
+        </script>
+        
+    <h2> You Current Portfolio </h2>
+    <table class = "center">
+    
+   <th> Stock </th>
+   <th> Shares </th>
+   <th> Last Price </th>
+   <th> Equity </th>
+    {% for i in portfolio %}
+    
+    <tr>
+        <td>{{ i["stock"] }} </td> 
+        <td> {{ i["SUM(quantity)"] }} </td> 
+        <td> {{ i["price"] }} </td>
+        <td> ${{ i["equity"] }}  </td> 
+ <!--       <td>
+        <button class="btn btn-default" value="{{ i["stock"] }}" data-action="buy">Buy</button>
+        <button class="btn btn-default" value="{{ i["stock"] }}" data-action="sell">Sell</button>
+        </td> -->
+        
+    </tr>
+    
+   
+    {% endfor %}
+    <tr> 
+        <td> </td>
+        <td> </td>
+        <td> </td> 
+        <td> </td>
+    </tr>
+    <tr> 
+        <td class = "balance"> Available Cash </td>
+        <td> </td>
+        <td> </td>
+        <td class = "balance"> ${{ cash_amount }}  </td> 
+    </tr>
+    <tr> 
+        <td class = "balance"> Total Acct Value </td>
+        <td> </td>
+        <td> </td>
+        <td class = "balance"> ${{ total_acct_value }}  </td> 
+    </tr>
+    
+    
+</table>
+
+
+
+
+
+{% endblock %}
+

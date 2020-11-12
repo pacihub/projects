@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+        <style>
+            table
+            {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            td
+            {
+                border: 1px solid black;
+                padding: 15px;
+            }
+
+            .header
+            {
+                background-color: green;
+            }
+            
+            .center 
+            {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+        
+        
+        <h1> Transaction history </h1>
+        <table class = "center"> 
+        <tr class = "header"> 
+        <td> Stock </td>
+        <td> Quantity </td>
+        <td> Price </td>
+        <td> Date/Time </td>
+        </tr>
+        {% for neshto in tr_history %}
+        <tr>
+        <td>{{neshto["stock"]}} </td> 
+        <td> {{neshto["quantity"]}} </td> 
+        <td> {{ neshto["price"] }} </td>
+        <td>  {{ neshto["date"] }} </td>
+        </tr>
+        {% endfor %}
+       
+    
+        </table>
+        
+    </form>
+{% endblock %}
