@@ -1,6 +1,6 @@
 #Project Title: Divfolio
 
-    Divfolio is a dynamic web application Divfolio is a web app that lets you
+    Divfolio is a dynamic web application that lets you
     track certain financial data about stocks and also lets you educate yourself about dividends.
 
 #Project goal:
