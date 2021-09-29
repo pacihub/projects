@@ -37,7 +37,7 @@
 
 
 #Example:
-    Bob is new to investing and is curious about dividends. He wants to browse some companies and see
+    Bob is new to investing and is curious about stock dividends and other stock indicators. He wants to browse some companies and see
     how they pay dividends.
     He registers on Devfolio, then logs in, enters his API key and he is all set to
     browse stocks. Bob searches for company XYZ. Financial data, such as XYZ's dividend yield,
