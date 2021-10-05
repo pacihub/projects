@@ -4,7 +4,7 @@
 
 # Project Title: Divfolio
 
-*** version 1.0 ***
+*** version 1.0.0 ***
 
 ### App for comparing dividend paying stocks.
 
@@ -18,6 +18,7 @@
      - Java Script
      - Bootstrap v5.0.0
      - HTML and Jinja
+     - REST API
 
 # Functionalities:
     The app lets you create your own profile when you register. From there you can use the search 
