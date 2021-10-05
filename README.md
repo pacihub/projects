@@ -2,53 +2,67 @@
 ![D1](https://user-images.githubusercontent.com/60657122/135938850-46cfa5b7-542c-4f7a-9513-5e10c6b17a03.png)
 
 
-#Project Title: Divfolio
+# Project Title: Divfolio
 
-    Divfolio is a dynamic web application that lets you
-    track certain financial data about stocks and also lets you educate yourself about dividends.
+*** version 1.0 ***
 
-#Project goal:
+### App for comparing dividend paying stocks.
+
+# Project goal:
     To help newbie investors educate themselves about the world of dividends and see how
     different companies pay them to their shareholders.
 
-#Technologies:
+# Technologies:
      - Python 3.7.9
      - SQLite3
      - Java Script
      - Bootstrap v5.0.0
      - HTML and Jinja
 
-#Functionalities:
-     - Connectivity to real financial data via API.
-     - Allows users to enter and use their own API keys.
-     - Dynamically generated content. Generate financial data (mostly data about dividends) for screening
-       about companies per users' choice.
-     - Ability to save a list of user's favorite stocks and their dividend data in one place.
-     - Ability to dynamically modify this list by removing stocks or adding new stocks to it.
-     - Authentication. Ability to register and log in different users.
-     - Remembers every user's progress via cookies. Every user has their own profile.
+# Functionalities:
+    The app lets you create your own profile when you register. From there you can use the search 
+    bar to search for stocks. Once the stock financial data is populated on the screen, there is 
+    a functionality for saving stocks in a watchlist that is therefore linked to your profile. 
+    The watchlist can be edited as well, meaning you can add/remove as many stocks as you want. 
+    The watchlist is dividend centered, which lets you compare dividend yields between all the 
+    stocks in your watchlist at a glance. Your watchlist is assigned to your profile and next 
+    time you log in you will have access to it.
+
+    Note: you will be prompted for your free API key from Alphavantage, 
+    which the app to deliver financial data. 
+    In the next version of the app this feature will be built in. 
 
 
-#Overview:
-    The web application uses API to connect the user to financial data provider.
-    After having registered and logged in, users must obtain their own API keys form the data provider and
-    enter the key into the webpage to be able to browse freshly generated financial data.
+# How to use?
 
-    On a separate screen the user can search for stock tickers. Via the API the company's financial data
-    is fetched from the data provider and is populated on the screen.
-    Then the user has the option to 'add' this stock and its financial data to his list of favorite stocks
-    or move on. User has the ability to modify this list by deleting and adding new stocks to it.
+## Log In & Register tabs
+Lets you create an account or log in. 
+
+<img width="1432" alt="login" src="https://user-images.githubusercontent.com/60657122/135955368-a57b1d0e-b323-466a-a43c-e94817555ae4.png">
+
+## API Connect tab
+Lets you enter your Alphavantage API key, which will be used for pulling financial data.
+
+![0 API](https://user-images.githubusercontent.com/60657122/135955681-0be0fec6-e527-40c0-9b2c-68e3705f7c38.png)
 
 
-#Example:
-    Bob is new to investing and is curious about stock dividends and other stock indicators. He wants to browse some companies and see
-    how they pay dividends.
-    He registers on Devfolio, then logs in, enters his API key and he is all set to
-    browse stocks. Bob searches for company XYZ. Financial data, such as XYZ's dividend yield,
-    payout ratio, earnings per share, etc. populates on the screen. Bob decides to add XYZ stock to his
-    favorites. Stock's name and dividend data are saved in a list.
-    Bob can later log in and see his list of his favorite stocks, that he could modify by
-    adding new stocks to it or removing stocks from it.
+
+## Explore tab
+Here you can use the search bar to search for stocks. 
+
+![1 Search](https://user-images.githubusercontent.com/60657122/135956656-23b37edb-ecde-4126-a42f-40e419aa439b.png)
+
+
+The app shows you real time financial data about the stock and you can either add it to you watchlist or just lookup a new ticker.
+
+<img width="1418" alt="found" src="https://user-images.githubusercontent.com/60657122/135956708-5ddaabbe-39dd-4677-b889-c093f79e1e7b.png">
+
+
+## My Stocks tab
+Here you can see your stocks watchlist, compare dividends and remove stocks from that list if you like.
+
+<img width="1416" alt="list" src="https://user-images.githubusercontent.com/60657122/135956974-717dd13c-f2d8-4c56-b584-b0ff6ba3e22e.png">
+
 
 
 
